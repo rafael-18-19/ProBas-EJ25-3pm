@@ -1,0 +1,28 @@
+# Función para generar la secuencia de Fibonacci
+def secuencia_fibonacci(n):
+    # La secuencia de Fibonacci comienza con 0 y 1
+    fibonacci = []
+    
+    # Verificar si el número de términos es mayor que 0
+    if n <= 0:
+        return "Por favor, ingrese un número positivo de términos."
+    elif n == 1:
+        fibonacci.append(0)  # Si solo se quiere 1 término, se devuelve solo el 0
+    else:
+        fibonacci.append(0)  # Primer término
+        fibonacci.append(1)  # Segundo término
+        
+        # Calcular los siguientes términos de la secuencia
+        for i in range(2, n):
+            siguiente = fibonacci[-1] + fibonacci[-2]  # Sumar los dos últimos términos
+            fibonacci.append(siguiente)
+    
+    return fibonacci
+
+# Solicitar al usuario el número de términos
+try:
+    numero_terminos = int(input("Ingresa el número de términos de la secuencia Fibonacci que deseas generar: "))
+    resultado = secuencia_fibonacci(numero_terminos)
+    print(f"La secuencia Fibonacci de {numero_terminos} términos es: {resultado}")
+except ValueError:
+    print("Por favor, ingresa un número entero válido.")

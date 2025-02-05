@@ -1,0 +1,21 @@
+# Función para calcular el interés compuesto
+def calcular_interes_compuesto(P, r, t, n):
+    # Calculamos el monto final con la fórmula del interés compuesto
+    A = P * (1 + r / n) ** (n * t)
+    return A
+
+# Solicitar al usuario el capital inicial, tasa de interés, tiempo y número de capitalizaciones al año
+try:
+    capital_inicial = float(input("Ingresa el capital inicial (P): "))
+    tasa_interes = float(input("Ingresa la tasa de interés anual (en porcentaje): ")) / 100  # Convertimos el porcentaje a decimal
+    tiempo = float(input("Ingresa el tiempo en años (t): "))
+    capitalizaciones_anuales = int(input("Ingresa el número de veces que se capitaliza el interés al año (n): "))
+
+    # Llamamos a la función para calcular el monto final
+    monto_final = calcular_interes_compuesto(capital_inicial, tasa_interes, tiempo, capitalizaciones_anuales)
+
+    # Mostramos el resultado
+    print(f"El monto final después de {tiempo} años es: {monto_final:.2f}")
+    
+except ValueError:
+    print("Por favor, ingresa valores numéricos válidos.")

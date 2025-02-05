@@ -1,0 +1,27 @@
+import math  # Importamos la librería math para usar pi y otras funciones matemáticas
+
+# Función para calcular el área y la circunferencia de un círculo
+def calcular_circulo(radio):
+    # Calculamos la circunferencia
+    circunferencia = 2 * math.pi * radio
+    # Calculamos el área
+    area = math.pi * radio ** 2
+    return circunferencia, area
+
+# Solicitar al usuario el radio del círculo
+try:
+    radio = float(input("Ingresa el radio del círculo: "))
+    
+    # Verificar que el radio sea positivo
+    if radio <= 0:
+        print("El radio debe ser un número positivo.")
+    else:
+        # Llamamos a la función para calcular la circunferencia y el área
+        circunferencia, area = calcular_circulo(radio)
+        
+        # Mostramos los resultados
+        print(f"La circunferencia del círculo es: {circunferencia:.2f}")
+        print(f"El área del círculo es: {area:.2f}")
+    
+except ValueError:
+    print("Por favor, ingresa un número válido para el radio.")
