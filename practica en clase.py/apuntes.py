@@ -26,3 +26,6 @@ enumerate, tupla= no puede ser otro valor en boll
  print(bool(conjunto),bool(lista),boll())
 
  ·como gardar modificasiones en repositorio en git hub
+
+print ("media")
+if print ("no")
