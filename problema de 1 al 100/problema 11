@@ -1,0 +1,58 @@
+def leer_archivo(nombre_archivo):
+    try:
+        with open(nombre_archivo, 'r') as archivo:
+            contenido = archivo.read()
+            print("Contenido del archivo:\n")
+            print(contenido)
+    except FileNotFoundError:
+        print("El archivo no existe.")
+
+def escribir_archivo(nombre_archivo):
+    with open(nombre_archivo, 'w') as archivo:
+        texto = input("Introduce el texto que quieres escribir en el archivo: ")
+        archivo.write(texto)
+        print("Texto escrito correctamente.")
+
+def modificar_archivo(nombre_archivo):
+    try:
+        with open(nombre_archivo, 'r') as archivo:
+            contenido = archivo.read()
+            print("Contenido actual del archivo:\n")
+            print(contenido)
+        
+        texto_nuevo = input("\nIntroduce el nuevo texto para modificar el archivo: ")
+        
+        with open(nombre_archivo, 'w') as archivo:
+            archivo.write(texto_nuevo)
+            print("Archivo modificado correctamente.")
+    except FileNotFoundError:
+        print("El archivo no existe.")
+
+def mostrar_menu():
+    print("\nOpciones disponibles:")
+    print("1. Leer archivo")
+    print("2. Escribir en archivo")
+    print("3. Modificar archivo")
+    print("4. Salir")
+
+def main():
+    nombre_archivo = input("Introduce el nombre del archivo (con extensión .txt): ")
+
+    while True:
+        mostrar_menu()
+        opcion = input("Elige una opción (1-4): ")
+
+        if opcion == '1':
+            leer_archivo(nombre_archivo)
+        elif opcion == '2':
+            escribir_archivo(nombre_archivo)
+        elif opcion == '3':
+            modificar_archivo(nombre_archivo)
+        elif opcion == '4':
+            print("Saliendo...")
+            break
+        else:
+            print("Opción no válida. Intenta de nuevo.")
+
+if __name__ == "__main__":
+    main()

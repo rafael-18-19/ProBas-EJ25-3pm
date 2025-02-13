@@ -1,0 +1,18 @@
+def es_bisiesto(anio):
+    # Si el año es divisible por 4 y (no divisible por 100 o divisible por 400), es bisiesto
+    if (anio % 4 == 0 and (anio % 100 != 0 or anio % 400 == 0)):
+        return True
+    else:
+        return False
+
+def main():
+    # Solicitar al usuario el año
+    anio = int(input("Introduce un año para verificar si es bisiesto: "))
+    
+    if es_bisiesto(anio):
+        print(f"El año {anio} es bisiesto.")
+    else:
+        print(f"El año {anio} no es bisiesto.")
+
+if __name__ == "__main__":
+    main()

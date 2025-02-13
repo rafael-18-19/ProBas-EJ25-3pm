@@ -1,0 +1,55 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def generar_numeros_aleatorios():
+    # Generación de números aleatorios con distintas distribuciones
+
+    # 1. Distribución uniforme
+    n = 1000
+    uniforme = np.random.uniform(low=0, high=10, size=n)
+
+    # 2. Distribución normal (Gaussiana)
+    media = 0
+    desviacion = 1
+    normal = np.random.normal(loc=media, scale=desviacion, size=n)
+
+    # 3. Distribución binomial
+    n_tiros = 10
+    probabilidad = 0.5
+    binomial = np.random.binomial(n=n_tiros, p=probabilidad, size=n)
+
+    # 4. Distribución Poisson
+    lambda_poisson = 5
+    poisson = np.random.poisson(lam=lambda_poisson, size=n)
+
+    # 5. Distribución exponencial
+    escala_expo = 1
+    exponencial = np.random.exponential(scale=escala_expo, size=n)
+
+    # Mostrar resultados con gráficos
+    fig, axs = plt.subplots(3, 2, figsize=(12, 10))
+
+    axs[0, 0].hist(uniforme, bins=30, color='blue', alpha=0.7)
+    axs[0, 0].set_title('Distribución Uniforme')
+
+    axs[0, 1].hist(normal, bins=30, color='red', alpha=0.7)
+    axs[0, 1].set_title('Distribución Normal')
+
+    axs[1, 0].hist(binomial, bins=30, color='green', alpha=0.7)
+    axs[1, 0].set_title('Distribución Binomial')
+
+    axs[1, 1].hist(poisson, bins=30, color='orange', alpha=0.7)
+    axs[1, 1].set_title('Distribución Poisson')
+
+    axs[2, 0].hist(exponencial, bins=30, color='purple', alpha=0.7)
+    axs[2, 0].set_title('Distribución Exponencial')
+
+    # Ocultar el gráfico vacío (ya que hay solo 5 subgráficos)
+    axs[2, 1].axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+# Llamar a la función para generar y mostrar los números aleatorios
+generar_numeros_aleatorios()
+

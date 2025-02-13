@@ -1,0 +1,24 @@
+import cmath  # Para manejar raíces cuadradas de números negativos (números complejos)
+
+def resolver_ecuacion_cuadratica(a, b, c):
+    # Calcular el discriminante
+    discriminante = b**2 - 4*a*c
+    
+    # Calcular las dos soluciones (usando la fórmula cuadrática)
+    solucion1 = (-b + cmath.sqrt(discriminante)) / (2 * a)
+    solucion2 = (-b - cmath.sqrt(discriminante)) / (2 * a)
+    
+    return solucion1, solucion2
+
+# Solicitar los coeficientes al usuario
+a = float(input("Introduce el valor de a: "))
+b = float(input("Introduce el valor de b: "))
+c = float(input("Introduce el valor de c: "))
+
+# Resolver la ecuación
+solucion1, solucion2 = resolver_ecuacion_cuadratica(a, b, c)
+
+# Mostrar las soluciones
+print(f"Las soluciones de la ecuación {a}x² + {b}x + {c} = 0 son:")
+print(f"x1 = {solucion1}")
+print(f"x2 = {solucion2}")

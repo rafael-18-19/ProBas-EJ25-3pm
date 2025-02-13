@@ -1,0 +1,61 @@
+def celsius_a_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_a_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def celsius_a_kelvin(celsius):
+    return celsius + 273.15
+
+def kelvin_a_celsius(kelvin):
+    return kelvin - 273.15
+
+def fahrenheit_a_kelvin(fahrenheit):
+    celsius = fahrenheit_a_celsius(fahrenheit)
+    return celsius_a_kelvin(celsius)
+
+def kelvin_a_fahrenheit(kelvin):
+    celsius = kelvin_a_celsius(kelvin)
+    return celsius_a_fahrenheit(celsius)
+
+def mostrar_menu():
+    print("\nOpciones de conversión:")
+    print("1. Celsius a Fahrenheit")
+    print("2. Fahrenheit a Celsius")
+    print("3. Celsius a Kelvin")
+    print("4. Kelvin a Celsius")
+    print("5. Fahrenheit a Kelvin")
+    print("6. Kelvin a Fahrenheit")
+    print("7. Salir")
+
+def main():
+    while True:
+        mostrar_menu()
+        opcion = input("Elige una opción (1-7): ")
+
+        if opcion == '1':
+            celsius = float(input("Introduce la temperatura en Celsius: "))
+            print(f"{celsius} °C = {celsius_a_fahrenheit(celsius)} °F")
+        elif opcion == '2':
+            fahrenheit = float(input("Introduce la temperatura en Fahrenheit: "))
+            print(f"{fahrenheit} °F = {fahrenheit_a_celsius(fahrenheit)} °C")
+        elif opcion == '3':
+            celsius = float(input("Introduce la temperatura en Celsius: "))
+            print(f"{celsius} °C = {celsius_a_kelvin(celsius)} K")
+        elif opcion == '4':
+            kelvin = float(input("Introduce la temperatura en Kelvin: "))
+            print(f"{kelvin} K = {kelvin_a_celsius(kelvin)} °C")
+        elif opcion == '5':
+            fahrenheit = float(input("Introduce la temperatura en Fahrenheit: "))
+            print(f"{fahrenheit} °F = {fahrenheit_a_kelvin(fahrenheit)} K")
+        elif opcion == '6':
+            kelvin = float(input("Introduce la temperatura en Kelvin: "))
+            print(f"{kelvin} K = {kelvin_a_fahrenheit(kelvin)} °F")
+        elif opcion == '7':
+            print("Saliendo...")
+            break
+        else:
+            print("Opción no válida. Intenta de nuevo.")
+
+if __name__ == "__main__":
+    main()
